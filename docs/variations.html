@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html  lang="french">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Régression linéaire</title>
+  <meta name="description" content="Régression linéaire">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Régression linéaire" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Régression linéaire" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="estimation-du-modele.html">
+<link rel="next" href="design-experimental.html">
+<style type="text/css">
+p.abstract{
+  text-align: center;
+  font-weight: bold;
+}
+div.abstract{
+  margin: auto;
+  width: 90%;
+}
+</style>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="contexte.html"><a href="contexte.html"><i class="fa fa-check"></i><b>1</b> Contexte</a></li>
+<li class="chapter" data-level="2" data-path="fabrication-des-donnees.html"><a href="fabrication-des-donnees.html"><i class="fa fa-check"></i><b>2</b> Fabrication des données</a></li>
+<li class="chapter" data-level="3" data-path="estimation-du-modele.html"><a href="estimation-du-modele.html"><i class="fa fa-check"></i><b>3</b> Estimation du modèle</a></li>
+<li class="chapter" data-level="4" data-path="variations.html"><a href="variations.html"><i class="fa fa-check"></i><b>4</b> Variations</a><ul>
+<li class="chapter" data-level="4.1" data-path="variations.html"><a href="variations.html#erreur-du-modele"><i class="fa fa-check"></i><b>4.1</b> Erreur du modèle</a></li>
+<li class="chapter" data-level="4.2" data-path="variations.html"><a href="variations.html#nombre-de-points"><i class="fa fa-check"></i><b>4.2</b> Nombre de points</a></li>
+<li class="chapter" data-level="4.3" data-path="variations.html"><a href="variations.html#calcul-des-elements-du-modele"><i class="fa fa-check"></i><b>4.3</b> Calcul des éléments du modèle</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="design-experimental.html"><a href="design-experimental.html"><i class="fa fa-check"></i><b>5</b> Design expérimental</a><ul>
+<li class="chapter" data-level="5.1" data-path="design-experimental.html"><a href="design-experimental.html#performance"><i class="fa fa-check"></i><b>5.1</b> Performance</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>6</b> Conclusion</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Régression linéaire</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="variations" class="section level1">
+<h1><span class="header-section-number">4</span> Variations</h1>
+<div id="erreur-du-modele" class="section level2">
+<h2><span class="header-section-number">4.1</span> Erreur du modèle</h2>
+<p>L’estimation est bien meilleure si l’erreur du modèle est plus faible. Changeons la valeur de <span class="math inline">\(\mathcal{E}\)</span> :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">E &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="kw">nrow</span>(X)) <span class="op">*</span><span class="st"> </span><span class="dv">10</span></code></pre></div>
+<p>L’écart-type de l’erreur est maintenant 10 fois plus petit. Le reste du code est inchangé et on obtient :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Y &lt;-<span class="st"> </span>X <span class="op">%*%</span><span class="st"> </span>Theta <span class="op">+</span><span class="st"> </span>E
+Regression &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> Y <span class="op">~</span><span class="st"> </span>X1 <span class="op">+</span><span class="st"> </span>X2)
+<span class="co"># Figure</span>
+s3d &lt;-<span class="st"> </span><span class="kw">scatterplot3d</span>(X1, X2, Y, <span class="dt">highlight.3d =</span> <span class="ot">TRUE</span>)
+<span class="kw">summary</span>(Regression)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Y ~ X1 + X2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -21.757  -5.809   0.147   5.540  34.462 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)  3.76349    2.53549   1.484    0.141
+## X1           1.98483    0.03541  56.059   &lt;2e-16
+## X2           2.96553    0.03502  84.680   &lt;2e-16
+##                
+## (Intercept)    
+## X1          ***
+## X2          ***
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 9.832 on 97 degrees of freedom
+## Multiple R-squared:  0.9912, Adjusted R-squared:  0.991 
+## F-statistic:  5444 on 2 and 97 DF,  p-value: &lt; 2.2e-16</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bhat &lt;-<span class="st"> </span>Regression<span class="op">$</span>coefficients[<span class="dv">1</span>]
+a1hat &lt;-<span class="st"> </span>Regression<span class="op">$</span>coefficients[<span class="dv">2</span>]
+a2hat &lt;-<span class="st"> </span>Regression<span class="op">$</span>coefficients[<span class="dv">3</span>]
+s3d<span class="op">$</span><span class="kw">plane3d</span>(bhat, a1hat, a2hat, <span class="dt">lty.box =</span> <span class="st">&quot;solid&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:e10"></span>
+<img src="Cours-InitStat-TCL_files/figure-html/e10-1.png" alt="Données simulées comme dans la figure précédente, mais avec une erreur 10 fois moins importante. Les points sont très proches du plan de régression." width=".8\maxwidth" />
+<p class="caption">
+Figure 4.1: Données simulées comme dans la figure précédente, mais avec une erreur 10 fois moins importante. Les points sont très proches du plan de régression.
+</p>
+</div>
+<p>La variabilité de l’erreur est beaucoup plus faible, donc le <span class="math inline">\(R^2\)</span> est bien meilleur (plus de 99%). Les paramètres <span class="math inline">\(a_1\)</span> et <span class="math inline">\(a_2\)</span> sont très bien estimés. La constante n’est toujours pas estimée correctement : sa valeur réelle est trop proche de 0.</p>
+</div>
+<div id="nombre-de-points" class="section level2">
+<h2><span class="header-section-number">4.2</span> Nombre de points</h2>
+<p>La valeur de <span class="math inline">\(R^2\)</span> peut fortement augmenter en diminuant le nombre de points. Avec deux variables explicatives et trois points, <span class="math inline">\(R^2=100\%\)</span> quelles que soient les données (il ne passe qu’un seul plan par trois points). Voici un exemple où 5 points seulement sont utilisés pour estimer le même modèle, avec un écart-type de l’erreur égal à 200 :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">NbX &lt;-<span class="st"> </span><span class="dv">5</span>
+X1 &lt;-<span class="st"> </span><span class="kw">runif</span>(NbX) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>
+X2 &lt;-<span class="st"> </span><span class="kw">runif</span>(NbX) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>
+X &lt;-<span class="st"> </span><span class="kw">cbind</span>(X1, X2, <span class="kw">rep</span>(<span class="dv">1</span>, <span class="kw">length</span>(X1)))
+E &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="kw">nrow</span>(X)) <span class="op">*</span><span class="st"> </span><span class="dv">200</span>
+Y &lt;-<span class="st"> </span>X <span class="op">%*%</span><span class="st"> </span>Theta <span class="op">+</span><span class="st"> </span>E
+Regression &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> Y <span class="op">~</span><span class="st"> </span>X1 <span class="op">+</span><span class="st"> </span>X2)
+<span class="kw">summary</span>(Regression)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Y ~ X1 + X2)
+## 
+## Residuals:
+##       1       2       3       4       5 
+## -46.327 -36.915  19.575  56.618   7.049 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)  81.7087    96.5662   0.846    0.487
+## X1            2.0237     0.8022   2.523    0.128
+## X2            2.3040     1.5772   1.461    0.282
+## 
+## Residual standard error: 59.78 on 2 degrees of freedom
+## Multiple R-squared:  0.7818, Adjusted R-squared:  0.5637 
+## F-statistic: 3.584 on 2 and 2 DF,  p-value: 0.2182</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Figure</span>
+s3d &lt;-<span class="st"> </span><span class="kw">scatterplot3d</span>(X1, X2, Y, <span class="dt">highlight.3d =</span> <span class="ot">TRUE</span>)
+bhat &lt;-<span class="st"> </span>Regression<span class="op">$</span>coefficients[<span class="dv">1</span>]
+a1hat &lt;-<span class="st"> </span>Regression<span class="op">$</span>coefficients[<span class="dv">2</span>]
+a2hat &lt;-<span class="st"> </span>Regression<span class="op">$</span>coefficients[<span class="dv">3</span>]
+s3d<span class="op">$</span><span class="kw">plane3d</span>(bhat, a1hat, a2hat, <span class="dt">lty.box =</span> <span class="st">&quot;solid&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:reg5p"></span>
+<img src="Cours-InitStat-TCL_files/figure-html/reg5p-1.png" alt="Modèle estimé avec 5 points seulement." width=".8\maxwidth" />
+<p class="caption">
+Figure 4.2: Modèle estimé avec 5 points seulement.
+</p>
+</div>
+<p><span class="math inline">\(R^2\)</span> est proche de 80% mais aucun des coefficients n’est significativement différent de 0. La valeur <em>ajustée</em> de <span class="math inline">\(R^2\)</span> retire de la variance expliquée la part due au simple ajout de variables supplémentaires sans signification : elle permet de comparer la performance d’un modèle à un autre avec un nombre différent de variables. La statistique de Fisher du modèle complet indique une probabilité de se tromper en rejetant l’hypothèse que le modèle n’explique rien supérieure à 20%. <span class="math inline">\(R^2\)</span> n’est donc pas une indication de la qualité de l’estimation du modèle, seulement de la part de la variance expliquée. Si le nombre d’observations est faible, <span class="math inline">\(R^2\)</span> peut être grand alors que le modèle n’explique rien. Inversement, l’estimation des paramètres peut être assez bonne avec un <span class="math inline">\(R^2\)</span> faible si le modèle est est estimé à partir de nombreuses données dans lesquelles la variabilité individuelle est grande. Avec 10000 observations et une erreur d’écart-type 100 :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">NbX &lt;-<span class="st"> </span><span class="dv">10000</span>
+X1 &lt;-<span class="st"> </span><span class="kw">runif</span>(NbX) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>
+X2 &lt;-<span class="st"> </span><span class="kw">runif</span>(NbX) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>
+X &lt;-<span class="st"> </span><span class="kw">cbind</span>(X1, X2, <span class="kw">rep</span>(<span class="dv">1</span>, <span class="kw">length</span>(X1)))
+E &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="kw">nrow</span>(X)) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>
+Y &lt;-<span class="st"> </span>X <span class="op">%*%</span><span class="st"> </span>Theta <span class="op">+</span><span class="st"> </span>E
+Regression &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> Y <span class="op">~</span><span class="st"> </span>X1 <span class="op">+</span><span class="st"> </span>X2)
+<span class="kw">summary</span>(Regression)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Y ~ X1 + X2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -364.66  -67.41   -0.68   66.85  412.77 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)  1.33230    2.61928   0.509    0.611
+## X1           2.00198    0.03468  57.721   &lt;2e-16
+## X2           3.02889    0.03463  87.473   &lt;2e-16
+##                
+## (Intercept)    
+## X1          ***
+## X2          ***
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 99.87 on 9997 degrees of freedom
+## Multiple R-squared:  0.5286, Adjusted R-squared:  0.5285 
+## F-statistic:  5606 on 2 and 9997 DF,  p-value: &lt; 2.2e-16</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Figure</span>
+s3d &lt;-<span class="st"> </span><span class="kw">scatterplot3d</span>(X1, X2, Y, <span class="dt">highlight.3d =</span> <span class="ot">TRUE</span>)
+bhat &lt;-<span class="st"> </span>Regression<span class="op">$</span>coefficients[<span class="dv">1</span>]
+a1hat &lt;-<span class="st"> </span>Regression<span class="op">$</span>coefficients[<span class="dv">2</span>]
+a2hat &lt;-<span class="st"> </span>Regression<span class="op">$</span>coefficients[<span class="dv">3</span>]
+s3d<span class="op">$</span><span class="kw">plane3d</span>(bhat, a1hat, a2hat, <span class="dt">lty.box =</span> <span class="st">&quot;solid&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:reg10000p"></span>
+<img src="Cours-InitStat-TCL_files/figure-html/reg10000p-1.png" alt="Modèle estimé avec 10000 points et une erreur importante." width=".8\maxwidth" />
+<p class="caption">
+Figure 4.3: Modèle estimé avec 10000 points et une erreur importante.
+</p>
+</div>
+<p><span class="math inline">\(R^2\)</span> reste similaire à celui de la première simulation : multiplier les observations n’a pas d’influence. L’estimation des coefficients est 10 fois plus précise qu’avec 100 observations (l’erreur standard est proportionnelle à <span class="math inline">\(1/\sqrt{n}\)</span>).</p>
+</div>
+<div id="calcul-des-elements-du-modele" class="section level2">
+<h2><span class="header-section-number">4.3</span> Calcul des éléments du modèle</h2>
+<p>Le modèle peut être estimé pas à pas pour prévoir son comportement avant de réaliser l’expérience. A titre d’illustration (figure <a href="variations.html#fig:reg100">4.4</a>, 100 observations sont simulées, avec une erreur faible (écart-type égal à 10).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">NbX &lt;-<span class="st"> </span><span class="dv">100</span>
+X1 &lt;-<span class="st"> </span><span class="kw">runif</span>(NbX) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>
+X2 &lt;-<span class="st"> </span><span class="kw">runif</span>(NbX) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>
+X &lt;-<span class="st"> </span><span class="kw">cbind</span>(X1, X2, <span class="kw">rep</span>(<span class="dv">1</span>, <span class="kw">length</span>(X1)))
+E &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="kw">nrow</span>(X)) <span class="op">*</span><span class="st"> </span><span class="dv">10</span>
+Y &lt;-<span class="st"> </span>X <span class="op">%*%</span><span class="st"> </span>Theta <span class="op">+</span><span class="st"> </span>E
+Regression &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> Y <span class="op">~</span><span class="st"> </span>X1 <span class="op">+</span><span class="st"> </span>X2)
+<span class="kw">summary</span>(Regression)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Y ~ X1 + X2)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -24.0098  -6.5104   0.4876   7.4009  18.5557 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)  0.76433    2.93275   0.261    0.795
+## X1           1.98997    0.03618  55.000   &lt;2e-16
+## X2           3.00778    0.03876  77.609   &lt;2e-16
+##                
+## (Intercept)    
+## X1          ***
+## X2          ***
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 10.33 on 97 degrees of freedom
+## Multiple R-squared:  0.9892, Adjusted R-squared:  0.989 
+## F-statistic:  4433 on 2 and 97 DF,  p-value: &lt; 2.2e-16</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Figure</span>
+s3d &lt;-<span class="st"> </span><span class="kw">scatterplot3d</span>(X1, X2, Y, <span class="dt">highlight.3d =</span> <span class="ot">TRUE</span>)
+bhat &lt;-<span class="st"> </span>Regression<span class="op">$</span>coefficients[<span class="dv">1</span>]
+a1hat &lt;-<span class="st"> </span>Regression<span class="op">$</span>coefficients[<span class="dv">2</span>]
+a2hat &lt;-<span class="st"> </span>Regression<span class="op">$</span>coefficients[<span class="dv">3</span>]
+s3d<span class="op">$</span><span class="kw">plane3d</span>(bhat, a1hat, a2hat, <span class="dt">lty.box =</span> <span class="st">&quot;solid&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:reg100"></span>
+<img src="Cours-InitStat-TCL_files/figure-html/reg100-1.png" alt="Modèle estimé avec 100 points et une faible erreur." width=".8\maxwidth" />
+<p class="caption">
+Figure 4.4: Modèle estimé avec 100 points et une faible erreur.
+</p>
+</div>
+<p>La première étape consiste à calculer la matrice <span class="math inline">\(\mathbf{\Sigma}=(\mathbf{X}&#39;\mathbf{X})^{-1}\)</span> :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(Sigma &lt;-<span class="st"> </span><span class="kw">solve</span>(<span class="kw">t</span>(X) <span class="op">%*%</span><span class="st"> </span>X))</code></pre></div>
+<pre><code>##               X1            X2              
+## X1  1.227195e-05  2.861349e-07 -0.0006424295
+## X2  2.861349e-07  1.408007e-05 -0.0007365698
+##    -6.424295e-04 -7.365698e-04  0.0806292031</code></pre>
+<p><span class="math inline">\(\mathbf{\Sigma}\)</span> peut être calculée avant de réaliser l’expérience, sans connaître les valeurs de <span class="math inline">\(Y\)</span>. Après l’expérience, les paramètres peuvent être estimés en calculant <span class="math inline">\(\mathbf{\Sigma}\mathbf{X}&#39;\mathbf{Y}\)</span> :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Sigma <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(X) <span class="op">%*%</span><span class="st"> </span>Y</code></pre></div>
+<pre><code>##         [,1]
+## X1 1.9899651
+## X2 3.0077827
+##    0.7643349</code></pre>
+<p>La racine carré de la diagonale de la matrice <span class="math inline">\(\mathbf{\Sigma}\)</span> multipliée par l’écart-type de l’erreur du modèle donne l’erreur standard de l’estimateur des coefficients :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(SE &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">diag</span>(Sigma)) <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(E))</code></pre></div>
+<pre><code>##         X1         X2            
+## 0.03583622 0.03838556 2.90476883</code></pre>
+<p>L’intervalle de confiance (en plus ou en moins) est obtenu en multipliant l’erreur standard par <span class="math inline">\(t\)</span> :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(t &lt;-<span class="st"> </span><span class="kw">qt</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="fl">0.95</span>)<span class="op">/</span><span class="dv">2</span>, <span class="kw">nrow</span>(X) <span class="op">-</span><span class="st"> </span><span class="kw">ncol</span>(X) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>))</code></pre></div>
+<pre><code>## [1] 1.984984</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">SE <span class="op">*</span><span class="st"> </span>t</code></pre></div>
+<pre><code>##         X1         X2            
+## 0.07113433 0.07619473 5.76592055</code></pre>
+<p>Les estimateurs des coefficients sont idéalement indépendants entre eux. Ce n’est pas le cas en pratique si les valeurs de  ne le sont pas. On peut calculer la corrélation entre les estimateurs :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">t</span>(Sigma<span class="op">/</span><span class="kw">sqrt</span>(<span class="kw">diag</span>(Sigma)))<span class="op">/</span><span class="kw">sqrt</span>(<span class="kw">diag</span>(Sigma)), 
+    <span class="dv">3</span>)</code></pre></div>
+<pre><code>##        X1     X2       
+## X1  1.000  0.022 -0.646
+## X2  0.022  1.000 -0.691
+##    -0.646 -0.691  1.000</code></pre>
+<p>La corrélation entre <span class="math inline">\(\hat{a}_1\)</span> et <span class="math inline">\(\hat{a}_2\)</span> est égale à 0.022, très proche de 0.</p>
+<p>Simulons des valeurs de X très corrélées :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">X2 &lt;-<span class="st"> </span>X1 <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="kw">runif</span>(<span class="kw">length</span>(X1)))
+X &lt;-<span class="st"> </span><span class="kw">cbind</span>(X1, X2, <span class="kw">rep</span>(<span class="dv">1</span>, <span class="kw">length</span>(X1)))
+<span class="co"># Corrélation entre les coefficients</span>
+(Sigma &lt;-<span class="st"> </span><span class="kw">solve</span>(<span class="kw">t</span>(X) <span class="op">%*%</span><span class="st"> </span>X))</code></pre></div>
+<pre><code>##               X1            X2              
+## X1  8.099497e-05 -4.757553e-05 -5.883953e-04
+## X2 -4.757553e-05  3.293277e-05 -2.704209e-05
+##    -5.883953e-04 -2.704209e-05  4.211929e-02</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">t</span>(Sigma<span class="op">/</span><span class="kw">sqrt</span>(<span class="kw">diag</span>(Sigma)))<span class="op">/</span><span class="kw">sqrt</span>(<span class="kw">diag</span>(Sigma)), 
+    <span class="dv">3</span>)</code></pre></div>
+<pre><code>##        X1     X2       
+## X1  1.000 -0.921 -0.319
+## X2 -0.921  1.000 -0.023
+##    -0.319 -0.023  1.000</code></pre>
+<p>L’estimation du modèle reste bonne :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Y &lt;-<span class="st"> </span>X <span class="op">%*%</span><span class="st"> </span>Theta <span class="op">+</span><span class="st"> </span>E
+Regression &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> Y <span class="op">~</span><span class="st"> </span>X1 <span class="op">+</span><span class="st"> </span>X2)
+<span class="kw">summary</span>(Regression)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Y ~ X1 + X2)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -23.8436  -6.3916   0.4818   7.8284  18.6514 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)  1.22759    2.10554   0.583    0.561
+## X1           2.08854    0.09233  22.620   &lt;2e-16
+## X2           2.93166    0.05888  49.794   &lt;2e-16
+##                
+## (Intercept)    
+## X1          ***
+## X2          ***
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 10.26 on 97 degrees of freedom
+## Multiple R-squared:  0.9971, Adjusted R-squared:  0.997 
+## F-statistic: 1.673e+04 on 2 and 97 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Les estimateurs de <span class="math inline">\(\hat{a}_1\)</span> et <span class="math inline">\(\hat{a}_2\)</span> ont pourtant une corrélation égale à -0.921 : toute augmentation dans l’estimateur de l’un entraîne une diminution presque identique de l’estimateur de l’autre. La régression linéaire est très robuste face à la violation de ses hypothèses.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="estimation-du-modele.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="design-experimental.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

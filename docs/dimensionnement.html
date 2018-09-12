@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html  lang="french">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Loi des grands nombres et TCL</title>
+  <meta name="description" content="Loi des grands nombres et TCL">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Loi des grands nombres et TCL" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Loi des grands nombres et TCL" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="theoreme-de-la-limite-centrale.html">
+<link rel="next" href="conclusion.html">
+<style type="text/css">
+p.abstract{
+  text-align: center;
+  font-weight: bold;
+}
+div.abstract{
+  margin: auto;
+  width: 90%;
+}
+</style>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="contexte.html"><a href="contexte.html"><i class="fa fa-check"></i><b>1</b> Contexte</a></li>
+<li class="chapter" data-level="2" data-path="loi-des-grands-nombres.html"><a href="loi-des-grands-nombres.html"><i class="fa fa-check"></i><b>2</b> Loi des grands nombres</a></li>
+<li class="chapter" data-level="3" data-path="theoreme-de-la-limite-centrale.html"><a href="theoreme-de-la-limite-centrale.html"><i class="fa fa-check"></i><b>3</b> Théorème de la limite centrale</a></li>
+<li class="chapter" data-level="4" data-path="dimensionnement.html"><a href="dimensionnement.html"><i class="fa fa-check"></i><b>4</b> Dimensionnement</a></li>
+<li class="chapter" data-level="5" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Loi des grands nombres et TCL</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="dimensionnement" class="section level1">
+<h1><span class="header-section-number">4</span> Dimensionnement</h1>
+<p>Dans la réalité, on cherchera souvent à dimensionner une expérience. A partir de 10 mesures, on estime rapidement la moyenne et l’écart-type :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Tirages &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">10</span>)
+<span class="kw">mean</span>(Tirages)</code></pre></div>
+<pre><code>## [1] 0.4755803</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(Tirages)</code></pre></div>
+<pre><code>## [1] 0.2785896</code></pre>
+<p>On trouve ici par exemple 0,53 pour la moyenne et 0,27 pour l’écart-type. Dans la réalité, on ne connaît pas la loi des mesures mais cette estimation rapide permet de décider de l’effort de mesure en fonction de la précision choisie.</p>
+<p>Supposons qu’on veuille estimer la valeur avec une précision de <span class="math inline">\(\pm10\%\)</span>, c’est-à-dire un intervalle de confiance de l’ordre de 0,05. On note <span class="math inline">\(n\)</span> le nombre de mesures nécessaires. On sait que l’intervalle de confiance (à 95%) d’une loi normale est de <span class="math inline">\(\pm2\)</span> écarts-types divisés par <span class="math inline">\(\sqrt{n}\)</span>. On calcule donc facilement le nombre de mesures nécessaires :</p>
+<p><span class="math display">\[0,05&gt;2 \times 0,27/\sqrt{n} \Leftrightarrow n&gt;(2 \times 0,27/0,05)^2 \approx 116\]</span></p>
+<p>En faisant 116 mesures, on s’attend d’après notre première estimation à trouver un résultat de l’ordre de <span class="math inline">\(0,53\pm0,05\)</span> au seuil de confiance de 95% (il y a 5% de chances que notre mesure moyenne tombe par hasard en dehors de cet intervalle). Vérifions par simulations, en répétant le script des figures précédentes avec 116 tirages (Figure <a href="dimensionnement.html#fig:hist116">4.1</a>) :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">NbTirages &lt;-<span class="st"> </span><span class="dv">116</span>
+NbRepetitions &lt;-<span class="st"> </span><span class="dv">10000</span>
+TiragesM &lt;-<span class="st"> </span><span class="kw">replicate</span>(NbRepetitions, <span class="kw">mean</span>(<span class="kw">runif</span>(NbTirages)))
+<span class="kw">ggplot</span>(<span class="kw">data.frame</span>(TiragesM), <span class="kw">aes</span>(TiragesM)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="kw">nclass.Sturges</span>(TiragesM), 
+    <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">boundary =</span> <span class="dv">0</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="co"># Tracé de l&#39;intervalle de confiance et de la</span>
+<span class="co"># moyenne</span>
+<span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">quantile</span>(TiragesM, <span class="dt">probs =</span> <span class="fl">0.025</span>), 
+    <span class="dt">lty =</span> <span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">quantile</span>(TiragesM, 
+    <span class="dt">probs =</span> <span class="fl">0.975</span>), <span class="dt">lty =</span> <span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(TiragesM), 
+    <span class="dt">lty =</span> <span class="dv">3</span>, <span class="dt">col =</span> <span class="st">&quot;green&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Tirages&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Fréquence&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:hist116"></span>
+<img src="Cours-InitStat-TCL_files/figure-html/hist116-1.png" alt="Distribution d'une mesure moyenne réalisée sur 116 individus. La valeur moyenne est tracée en vert (0,5), l'intervalle de confiance empirique à 95\% est en pointillés noirs." width=".8\maxwidth" />
+<p class="caption">
+Figure 4.1: Distribution d’une mesure moyenne réalisée sur 116 individus. La valeur moyenne est tracée en vert (0,5), l’intervalle de confiance empirique à 95% est en pointillés noirs.
+</p>
+</div>
+<p>La répétition des simulations montre que la moyenne est égale à 0,5 et pas 0,53, mais l’intervalle de confiance recherché est bien atteint : environ 95% des mesures moyennes sont entre 0,45 et 0,55.</p>
+<p>La précision peut être améliorée de deux façons, à ne pas confondre : - On peut vouloir que l’intervalle de confiance soit 10 fois plus petit : <span class="math inline">\(\pm0,005\)</span> dans notre exemple. Alors, il faudra 100 fois plus de mesures. - On peut décider aussi d’augmenter le seuil de confiance : un intervalle de confiance à 95% signifie que la mesure moyenne sera plus grande ou plus petite dans 5% des cas. Ce seuil est arbitraire. Il peut être trop faible (pour un médicament par exemple, on peut avoir envie d’être confiant à 99% ou plus dans le résultat). Au seuil de 99%, l’intervalle de confiance n’est plus de <span class="math inline">\(\pm2\)</span> écarts-types divisés par <span class="math inline">\(\sqrt{n}\)</span>, mais de presque <span class="math inline">\(\pm3\)</span> écarts-types divisés par <span class="math inline">\(\sqrt{n}\)</span>. La valeur exacte est celle du quantile de la loi de Student<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a> et dépend du seuil de confiance et de <span class="math inline">\(n\)</span> (elle vaut précisément 1.96 et non 2 dans les simulations ci-dessus). Sa valeur est calculable dans R :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 95 pour cent</span>
+<span class="kw">qt</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="fl">0.95</span>)<span class="op">/</span><span class="dv">2</span>, <span class="dv">1000</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] 1.962341</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 99 pour cent</span>
+<span class="kw">qt</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="fl">0.99</span>)<span class="op">/</span><span class="dv">2</span>, <span class="dv">1000</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] 2.58076</code></pre>
+<p>La syntaxe étrange de la fonction <em>qt()</em> est due à ses usages multiples : les anglo-saxons raisonnent plutôt en terme de risque (5%) que de confiance (95%), et ce risque est ici divisé par 2 parce qu’on élimine que 2,5% des observations les plus grandes et les plus petites. L’autre paramètre est le nombre de degrés de liberté<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>, égal au nombre d’observations, 1000, moins 1 (la moyenne est fixée).</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="4">
+<li id="fn4"><p><a href="http://fr.wikipedia.org/wiki/Loi_de_Student" class="uri">http://fr.wikipedia.org/wiki/Loi_de_Student</a><a href="dimensionnement.html#fnref4">↩</a></p></li>
+<li id="fn5"><p><a href="http://fr.wikipedia.org/wiki/Degr%C3%A9_de_libert%C3%A9_(statistiques)">http://fr.wikipedia.org/wiki/Degr%C3%A9_de_libert%C3%A9_(statistiques)</a><a href="dimensionnement.html#fnref5">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="theoreme-de-la-limite-centrale.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="conclusion.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

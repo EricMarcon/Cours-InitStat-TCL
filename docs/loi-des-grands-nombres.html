@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html  lang="french">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Loi des grands nombres et TCL</title>
+  <meta name="description" content="Loi des grands nombres et TCL">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Loi des grands nombres et TCL" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Loi des grands nombres et TCL" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="contexte.html">
+<link rel="next" href="theoreme-de-la-limite-centrale.html">
+<style type="text/css">
+p.abstract{
+  text-align: center;
+  font-weight: bold;
+}
+div.abstract{
+  margin: auto;
+  width: 90%;
+}
+</style>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="contexte.html"><a href="contexte.html"><i class="fa fa-check"></i><b>1</b> Contexte</a></li>
+<li class="chapter" data-level="2" data-path="loi-des-grands-nombres.html"><a href="loi-des-grands-nombres.html"><i class="fa fa-check"></i><b>2</b> Loi des grands nombres</a></li>
+<li class="chapter" data-level="3" data-path="theoreme-de-la-limite-centrale.html"><a href="theoreme-de-la-limite-centrale.html"><i class="fa fa-check"></i><b>3</b> Théorème de la limite centrale</a></li>
+<li class="chapter" data-level="4" data-path="dimensionnement.html"><a href="dimensionnement.html"><i class="fa fa-check"></i><b>4</b> Dimensionnement</a></li>
+<li class="chapter" data-level="5" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Loi des grands nombres et TCL</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="loi-des-grands-nombres" class="section level1">
+<h1><span class="header-section-number">2</span> Loi des grands nombres</h1>
+<p>La loi des grands nombres<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> dit que la répétition de la même mesure va nous permettre d’approcher la distribution théorique. Nous tirons dans une loi uniforme entre 0 et 1 pour simuler la mesure. Plus le nombre de tirages est grand, plus l’histogramme des résultats se rapproche de celui de la loi uniforme (Figure <a href="loi-des-grands-nombres.html#fig:hist10">2.1</a>).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fh &lt;-<span class="st"> </span><span class="cf">function</span>(n) {
+    Tirages &lt;-<span class="st"> </span><span class="kw">runif</span>(n)
+    thePlot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(Tirages), <span class="kw">aes</span>(Tirages)) <span class="op">+</span><span class="st"> </span>
+<span class="st">        </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="kw">nclass.Sturges</span>(Tirages), 
+            <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">boundary =</span> <span class="dv">0</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">        </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;&quot;</span>, <span class="dt">title =</span> <span class="kw">paste</span>(n, <span class="st">&quot;tirages&quot;</span>))
+    <span class="kw">return</span>(thePlot)
+}
+<span class="kw">library</span>(<span class="st">&quot;gridExtra&quot;</span>)
+<span class="kw">grid.arrange</span>(<span class="kw">fh</span>(<span class="dv">10</span>), <span class="kw">fh</span>(<span class="dv">1000</span>), <span class="kw">fh</span>(<span class="fl">1e+05</span>), <span class="dt">ncol =</span> <span class="dv">3</span>, 
+    <span class="dt">bottom =</span> <span class="st">&quot;Tirages&quot;</span>, <span class="dt">left =</span> <span class="st">&quot;Fréquence&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:hist10"></span>
+<img src="Cours-InitStat-TCL_files/figure-html/hist10-1.png" alt="Histogramme des résultats du tirage dans une loi uniforme entre 0 et 1 pour 10, 1000 et 100000 tirages. Plus le nombre de tirages est élevé, plus l'histogramme est plat." width=".8\maxwidth" />
+<p class="caption">
+Figure 2.1: Histogramme des résultats du tirage dans une loi uniforme entre 0 et 1 pour 10, 1000 et 100000 tirages. Plus le nombre de tirages est élevé, plus l’histogramme est plat.
+</p>
+</div>
+<p>La loi uniforme<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>: est bien connue : son espérance est le centre de son intervalle, c’est-à-dire 0,5, et son écart-type est égal à son intervalle divisé par <span class="math inline">\(\sqrt{12})\)</span>, c’est-à-dire environ 0,289 dans notre cas.</p>
+<p>Dans la réalité, on va répéter les mesures et en faire la moyenne. La loi des grands nombres dit que cette moyenne se rapprochera de la vraie valeur en répétant les mesures (Figure <a href="loi-des-grands-nombres.html#fig:hist1000">2.2</a>).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">NbTirages &lt;-<span class="st"> </span><span class="dv">1000</span>
+Tirages &lt;-<span class="st"> </span>NbTirages <span class="op">%&gt;%</span><span class="st"> </span>runif
+Moyenne &lt;-<span class="st"> </span>Tirages <span class="op">%&gt;%</span><span class="st"> </span>cumsum <span class="op">%&gt;%</span><span class="st"> `</span><span class="dt">/</span><span class="st">`</span>(<span class="dv">1</span><span class="op">:</span>NbTirages)
+<span class="kw">ggplot</span>(<span class="kw">data.frame</span>(<span class="dt">Tirages =</span> <span class="dv">1</span><span class="op">:</span>NbTirages, Moyenne), 
+    <span class="kw">aes</span>(<span class="dt">x =</span> Tirages, <span class="dt">y =</span> Moyenne)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="fl">0.5</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:hist1000"></span>
+<img src="Cours-InitStat-TCL_files/figure-html/hist1000-1.png" alt="Évolution de la moyenne des résultats du tirage dans une loi uniforme entre 0 et 1 en fonction du nombre de tirages. La moyenne se rapproche de 0.5, sa valeur théorique, quand on augmente le nombre de tirages." width=".8\maxwidth" />
+<p class="caption">
+Figure 2.2: Évolution de la moyenne des résultats du tirage dans une loi uniforme entre 0 et 1 en fonction du nombre de tirages. La moyenne se rapproche de 0.5, sa valeur théorique, quand on augmente le nombre de tirages.
+</p>
+</div>
+<p>La répétition des mesures permet donc de s’approcher en moyenne de la vraie valeur. On peut vérifier que l’écart-type des mesures s’approche aussi de l’écart-type théorique :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(Tirages)</code></pre></div>
+<pre><code>## [1] 0.2908632</code></pre>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p><a href="http://fr.wikipedia.org/wiki/Loi_des_grands_nombres" class="uri">http://fr.wikipedia.org/wiki/Loi_des_grands_nombres</a><a href="loi-des-grands-nombres.html#fnref1">↩</a></p></li>
+<li id="fn2"><p><a href="http://fr.wikipedia.org/wiki/Loi_uniforme_continue" class="uri">http://fr.wikipedia.org/wiki/Loi_uniforme_continue</a><a href="loi-des-grands-nombres.html#fnref2">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="contexte.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="theoreme-de-la-limite-centrale.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

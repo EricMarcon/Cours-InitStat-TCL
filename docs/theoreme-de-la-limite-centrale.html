@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html  lang="french">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Loi des grands nombres et TCL</title>
+  <meta name="description" content="Loi des grands nombres et TCL">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Loi des grands nombres et TCL" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Loi des grands nombres et TCL" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="loi-des-grands-nombres.html">
+<link rel="next" href="dimensionnement.html">
+<style type="text/css">
+p.abstract{
+  text-align: center;
+  font-weight: bold;
+}
+div.abstract{
+  margin: auto;
+  width: 90%;
+}
+</style>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="contexte.html"><a href="contexte.html"><i class="fa fa-check"></i><b>1</b> Contexte</a></li>
+<li class="chapter" data-level="2" data-path="loi-des-grands-nombres.html"><a href="loi-des-grands-nombres.html"><i class="fa fa-check"></i><b>2</b> Loi des grands nombres</a></li>
+<li class="chapter" data-level="3" data-path="theoreme-de-la-limite-centrale.html"><a href="theoreme-de-la-limite-centrale.html"><i class="fa fa-check"></i><b>3</b> Théorème de la limite centrale</a></li>
+<li class="chapter" data-level="4" data-path="dimensionnement.html"><a href="dimensionnement.html"><i class="fa fa-check"></i><b>4</b> Dimensionnement</a></li>
+<li class="chapter" data-level="5" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Loi des grands nombres et TCL</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="theoreme-de-la-limite-centrale" class="section level1">
+<h1><span class="header-section-number">3</span> Théorème de la limite centrale</h1>
+<p>Le théorème de la limite centrale<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>: dit que la distribution de la moyenne des tirages converge vers une loi normale.</p>
+<p>Dans la réalité, on ne fera qu’une seule fois les 1000 mesures du paragraphe précédent. La question est la précision du résultat obtenu (qu’on appellera “mesure moyenne”) : il sera proche de la vraie valeur, d’autant plus qu’on aura répété les mesures, mais à quel point ?</p>
+<p>La mesure moyenne suit approximativement une loi normale (d’autant mieux que le nombre de mesures a été grand), dont l’espérance est celle de la mesure individuelle (0,5 dans notre cas) et l’écart-type celui de la mesure individuelle (<span class="math inline">\(1/\sqrt{12}\)</span> dans notre cas) divisé par la racine carrée du nombre de mesures (<span class="math inline">\(\sqrt{1000}\)</span> dans notre cas). La distribution d’une loi normale est bien connue : on sait que 95% de ses réalisations sont autour de son espérance, à plus ou moins deux écarts-types. Dans notre cas, la mesure moyenne a 95% de chances de se trouver dans l’intervalle <span class="math inline">\([0,5-2\times(1/\sqrt{12})/\sqrt{1000}; 0,5+2\times(1/\sqrt{12})/\sqrt{1000}]\)</span> c’est-à-dire <span class="math inline">\([0,482;0,518]\)</span>. C’est la définition de la précision du résultat : son intervalle de confiance à 95% est entre 0,482 et 0,518. Dans la réalité, l’écart-type de la mesure individuelle est en général inconnu au début de l’expérience, on pourra seulement l’estimer à partir des données. On peut essayer d’estimer l’écart-type à partir d’un petit nombre de mesures pour avoir une idée de la variabilité : cette estimation ne sera pas très bonne parce que la loi des grands nombres ne s’applique que pour les grands nombres, mais une valeur approximative est meilleure que pas de valeur du tout. A partir de 10 mesures, on obtient par exemple :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(<span class="kw">runif</span>(<span class="dv">10</span>))</code></pre></div>
+<pre><code>## [1] 0.3055797</code></pre>
+<p>Le théorème de la limite centrale nous dit que la précision de la mesure moyenne augmente avec la racine carrée du nombre de mesures : en quadruplant le nombre de mesures, l’intervalle de confiance est divisé par deux (la précision est deux fois meilleure). On peut vérifier ce résultat par simulation, en répétant un grand nombre de fois (10000) notre mesure moyenne (obtenue toujours en moyennant 1000 mesures) pour observer sa distribution :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">NbTirages &lt;-<span class="st"> </span><span class="dv">1000</span>
+NbRepetitions &lt;-<span class="st"> </span><span class="dv">10000</span>
+TiragesM &lt;-<span class="st"> </span><span class="kw">replicate</span>(NbRepetitions, <span class="kw">mean</span>(<span class="kw">runif</span>(NbTirages)))
+<span class="kw">ggplot</span>(<span class="kw">data.frame</span>(TiragesM), <span class="kw">aes</span>(TiragesM)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="kw">nclass.Sturges</span>(TiragesM), 
+    <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">boundary =</span> <span class="dv">0</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Tirages&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Fréquence&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:hist10000"></span>
+<img src="Cours-InitStat-TCL_files/figure-html/hist10000-1.png" alt="Histogramme des fréquences de la mesure moyenne (moyenne de 1000 tirages d'une loi uniforme entre 0 et 1) répétée 10000 fois. On observe une distribution en cloche typique d'une loi normale. La dispersion de la mesure moyenne est faible : aucune simulation n'a donné de résultat inférieur à 0,47 ni supérieur à 0,53, à comparer avec les histogrammes de la figure \@ref(fig:hist10)." width=".8\maxwidth" />
+<p class="caption">
+Figure 3.1: Histogramme des fréquences de la mesure moyenne (moyenne de 1000 tirages d’une loi uniforme entre 0 et 1) répétée 10000 fois. On observe une distribution en cloche typique d’une loi normale. La dispersion de la mesure moyenne est faible : aucune simulation n’a donné de résultat inférieur à 0,47 ni supérieur à 0,53, à comparer avec les histogrammes de la figure <a href="loi-des-grands-nombres.html#fig:hist10">2.1</a>.
+</p>
+</div>
+<p>Les résultats peuvent être affichés sous forme de densité de probabilité pour être comparés à une distribution normale (Figure <a href="theoreme-de-la-limite-centrale.html#fig:d10000">3.2</a>).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fd &lt;-<span class="st"> </span><span class="cf">function</span>(NbTirages, TiragesM) {
+    thePlot &lt;-<span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="co"># Affichage graphique de la densité de probabilité</span>
+<span class="st">    </span><span class="kw">geom_density</span>(<span class="kw">aes</span>(TiragesM), <span class="kw">data.frame</span>(TiragesM)) <span class="op">+</span><span class="st"> </span>
+<span class="st">        </span><span class="co"># Tracé de l&#39;intervalle de confiance</span>
+<span class="st">    </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">quantile</span>(TiragesM, <span class="dt">probs =</span> <span class="fl">0.025</span>), 
+        <span class="dt">lty =</span> <span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">quantile</span>(TiragesM, 
+        <span class="dt">probs =</span> <span class="fl">0.975</span>), <span class="dt">lty =</span> <span class="dv">2</span>)
+    <span class="co"># Calcul de la densité d&#39;une loi normale entre 0 et</span>
+    <span class="co"># 1 par pas de 0.001</span>
+    StdErr &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">12</span> <span class="op">*</span><span class="st"> </span>NbTirages)
+    Normale &lt;-<span class="st"> </span><span class="kw">dnorm</span>(<span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.001</span>), <span class="dt">mean =</span> <span class="fl">0.5</span>, 
+        <span class="dt">sd =</span> StdErr)
+    thePlot &lt;-<span class="st"> </span>thePlot <span class="op">+</span><span class="st"> </span><span class="co"># Tracé de la densité de la loi normale</span>
+<span class="st">    </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y), <span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">seq</span>(<span class="dv">0</span>, 
+        <span class="dv">1</span>, <span class="fl">0.001</span>), <span class="dt">y =</span> Normale), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Tracé des quantiles de la loi normale</span>
+<span class="st">    </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">qnorm</span>(<span class="dt">p =</span> <span class="fl">0.025</span>, <span class="dt">mean =</span> <span class="fl">0.5</span>, 
+        <span class="dt">sd =</span> StdErr), <span class="dt">lty =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">qnorm</span>(<span class="dt">p =</span> <span class="fl">0.975</span>, 
+        <span class="dt">mean =</span> <span class="fl">0.5</span>, <span class="dt">sd =</span> StdErr), <span class="dt">lty =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">        </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Tirage&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Densité&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">xlim</span>(<span class="fl">0.5</span> <span class="op">-</span><span class="st"> </span>
+<span class="st">        </span><span class="dv">4</span> <span class="op">*</span><span class="st"> </span>StdErr, <span class="fl">0.5</span> <span class="op">+</span><span class="st"> </span><span class="dv">4</span> <span class="op">*</span><span class="st"> </span>StdErr)
+    <span class="kw">return</span>(thePlot)
+}
+<span class="kw">fd</span>(NbTirages, TiragesM)</code></pre></div>
+<div class="figure"><span id="fig:d10000"></span>
+<img src="Cours-InitStat-TCL_files/figure-html/d10000-1.png" alt="Distribution de la mesure moyenne représentée sous la forme d'une densité de probabilité (lissage de l'histogramme de la figure précédente). La densité de probabilité de la loi normale vers laquelle la distribution converge est représentée en rouge. Les quantiles sont tracés en pointillés noirs pour la mesure moyenne (résultat des simulations) et rouge pour la loi normale (valeur théorique)." width=".8\maxwidth" />
+<p class="caption">
+Figure 3.2: Distribution de la mesure moyenne représentée sous la forme d’une densité de probabilité (lissage de l’histogramme de la figure précédente). La densité de probabilité de la loi normale vers laquelle la distribution converge est représentée en rouge. Les quantiles sont tracés en pointillés noirs pour la mesure moyenne (résultat des simulations) et rouge pour la loi normale (valeur théorique).
+</p>
+</div>
+<p>L’intervalle de confiance empirique (pointillés noirs, obtenu à partir des simulations) est très proche de l’intervalle de confiance théorique (pointillés rouges, calculé pour la loi normale : <span class="math inline">\([0,482;0,518]\)</span>).</p>
+<p>En augmentant le nombre de mesures, par exemple à 100000, c’est-à-dire 100 fois plus que précédemment, la distribution s’approche encore de la loi normale et l’intervalle de confiance est encore divisé par 10.</p>
+<p>En diminuant la précision de chaque mesure, le résultat ne change pas : répétons la simulation en limitant la précision des mesures à un seul chiffre significatif, c’est-à-dire en arrondissant les simulations à un chiffre après la virgule (les valeurs simulées ne peuvent être que 0, 0,1, 0,2, <span class="math inline">\(\dots\)</span>, 0,9, 1). La ligne de code qui réalise les tirages devient (Figure <a href="theoreme-de-la-limite-centrale.html#fig:darrondi">3.3</a>):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">fd</span>(NbTirages, <span class="kw">replicate</span>(NbRepetitions, <span class="kw">mean</span>(<span class="kw">round</span>(<span class="kw">runif</span>(NbTirages), 
+    <span class="dv">1</span>))))</code></pre></div>
+<div class="figure"><span id="fig:darrondi"></span>
+<img src="Cours-InitStat-TCL_files/figure-html/darrondi-1.png" alt="Simulation identique à celle de la figure précédente en limitant la précision de la mesure (chaque valeur simulée est arrondie à un seul chiffre significatif). Les mesures sont répétées 1000 fois, les erreurs d'arrondi se compensent et l'estimation de la moyenne est aussi bonne qu'avec les valeurs non arrondies." width=".8\maxwidth" />
+<p class="caption">
+Figure 3.3: Simulation identique à celle de la figure précédente en limitant la précision de la mesure (chaque valeur simulée est arrondie à un seul chiffre significatif). Les mesures sont répétées 1000 fois, les erreurs d’arrondi se compensent et l’estimation de la moyenne est aussi bonne qu’avec les valeurs non arrondies.
+</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="3">
+<li id="fn3"><p><a href="http://fr.wikipedia.org/wiki/Th%C3%A9or%C3%A8me_central_limite">http://fr.wikipedia.org/wiki/Th%C3%A9or%C3%A8me_central_limite</a><a href="theoreme-de-la-limite-centrale.html#fnref3">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="loi-des-grands-nombres.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="dimensionnement.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
