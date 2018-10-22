@@ -135,7 +135,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Dans la réalité, on ne fera qu’une seule fois les 1000 mesures du paragraphe précédent. La question est la précision du résultat obtenu (qu’on appellera “mesure moyenne”) : il sera proche de la vraie valeur, d’autant plus qu’on aura répété les mesures, mais à quel point ?</p>
 <p>La mesure moyenne suit approximativement une loi normale (d’autant mieux que le nombre de mesures a été grand), dont l’espérance est celle de la mesure individuelle (0,5 dans notre cas) et l’écart-type celui de la mesure individuelle (<span class="math inline">\(1/\sqrt{12}\)</span> dans notre cas) divisé par la racine carrée du nombre de mesures (<span class="math inline">\(\sqrt{1000}\)</span> dans notre cas). La distribution d’une loi normale est bien connue : on sait que 95% de ses réalisations sont autour de son espérance, à plus ou moins deux écarts-types. Dans notre cas, la mesure moyenne a 95% de chances de se trouver dans l’intervalle <span class="math inline">\([0,5-2\times(1/\sqrt{12})/\sqrt{1000}; 0,5+2\times(1/\sqrt{12})/\sqrt{1000}]\)</span> c’est-à-dire <span class="math inline">\([0,482;0,518]\)</span>. C’est la définition de la précision du résultat : son intervalle de confiance à 95% est entre 0,482 et 0,518. Dans la réalité, l’écart-type de la mesure individuelle est en général inconnu au début de l’expérience, on pourra seulement l’estimer à partir des données. On peut essayer d’estimer l’écart-type à partir d’un petit nombre de mesures pour avoir une idée de la variabilité : cette estimation ne sera pas très bonne parce que la loi des grands nombres ne s’applique que pour les grands nombres, mais une valeur approximative est meilleure que pas de valeur du tout. A partir de 10 mesures, on obtient par exemple :</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(<span class="kw">runif</span>(<span class="dv">10</span>))</code></pre></div>
-<pre><code>## [1] 0.3055797</code></pre>
+<pre><code>## [1] 0.3451559</code></pre>
 <p>Le théorème de la limite centrale nous dit que la précision de la mesure moyenne augmente avec la racine carrée du nombre de mesures : en quadruplant le nombre de mesures, l’intervalle de confiance est divisé par deux (la précision est deux fois meilleure). On peut vérifier ce résultat par simulation, en répétant un grand nombre de fois (10000) notre mesure moyenne (obtenue toujours en moyennant 1000 mesures) pour observer sa distribution :</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">NbTirages &lt;-<span class="st"> </span><span class="dv">1000</span>
 NbRepetitions &lt;-<span class="st"> </span><span class="dv">10000</span>
@@ -236,7 +236,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": [["Cours-InitStat-TCL.pdf", "PDF"]],
 "toc": {
 "collapse": "subsection"
 },

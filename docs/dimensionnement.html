@@ -134,9 +134,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Dans la réalité, on cherchera souvent à dimensionner une expérience. A partir de 10 mesures, on estime rapidement la moyenne et l’écart-type :</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Tirages &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">10</span>)
 <span class="kw">mean</span>(Tirages)</code></pre></div>
-<pre><code>## [1] 0.4755803</code></pre>
+<pre><code>## [1] 0.4020579</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(Tirages)</code></pre></div>
-<pre><code>## [1] 0.2785896</code></pre>
+<pre><code>## [1] 0.2551564</code></pre>
 <p>On trouve ici par exemple 0,53 pour la moyenne et 0,27 pour l’écart-type. Dans la réalité, on ne connaît pas la loi des mesures mais cette estimation rapide permet de décider de l’effort de mesure en fonction de la précision choisie.</p>
 <p>Supposons qu’on veuille estimer la valeur avec une précision de <span class="math inline">\(\pm10\%\)</span>, c’est-à-dire un intervalle de confiance de l’ordre de 0,05. On note <span class="math inline">\(n\)</span> le nombre de mesures nécessaires. On sait que l’intervalle de confiance (à 95%) d’une loi normale est de <span class="math inline">\(\pm2\)</span> écarts-types divisés par <span class="math inline">\(\sqrt{n}\)</span>. On calcule donc facilement le nombre de mesures nécessaires :</p>
 <p><span class="math display">\[0,05&gt;2 \times 0,27/\sqrt{n} \Leftrightarrow n&gt;(2 \times 0,27/0,05)^2 \approx 116\]</span></p>
@@ -214,7 +214,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": [["Cours-InitStat-TCL.pdf", "PDF"]],
 "toc": {
 "collapse": "subsection"
 },
