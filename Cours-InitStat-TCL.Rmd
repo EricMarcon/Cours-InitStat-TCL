@@ -12,18 +12,20 @@ preamble: >
   \hyphenation{bio-di-ver-si-ty sap-lings}
 lang: french # english
 bibliography: references.bib
+always_allow_html: yes
 output:
-  bookdown::gitbook: 
-    config:
-      download: 
-        - ["Cours-InitStat-TCL.pdf", "PDF"]
-  bookdown::word_document2: default
   bookdown::pdf_book:
     base_format: EcoFoG::memo
-    keep_tex: TRUE
+    keep_tex: yes
+  bookdown::gitbook:
+    config:
+      download: null
+  bookdown::word_document2: default
+  bookdown::html_document2:
+    theme: sandstone
+    toc: yes
+    toc_float: yes
 ---
-
-<!-- Options de knitr et de R (librairies, ...) --> 
 
 ```{r Options, echo=FALSE, message=FALSE}
 knitr::opts_chunk$set(echo = TRUE, tidy=TRUE, tidy.opts=list(blank=FALSE, width.cutoff=50), out.width='.8\\maxwidth')
@@ -39,8 +41,6 @@ Library <- function(Packages) {
 # Ajouter les packages nécessaires ici
 Library(c("kableExtra", "tidyverse", "gridExtra"))
 ```
-
-<!-- Début du document ci-dessous --> 
 
 
 # Contexte
